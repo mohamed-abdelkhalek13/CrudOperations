@@ -1,0 +1,39 @@
+<div class="container mt-5 w-100 h-100">
+    <h4>Products list</h4>
+    <hr>
+    <div class="container mt-5">
+      <a [routerLink]="['/create']">
+        <button type="button" class="btn btn-success mb-4">Add Product</button>
+      </a>
+      </div>
+    <ng-container *ngIf="productList.length>0">
+      <table class="table table-bordered table-hover table-striped sys-audit table-lg">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Category</th>
+            <th scope="col">Product Color</th>
+            <th scope="col">procedures</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of productList">
+            <td>{{product.name}}</td>
+            <td>{{product.category}}</td>
+            <td>{{product.color}}</td>
+            <td class="d-flex justify-content-center">
+              <a [routerLink]="'/update/'+product.id">
+                <button  type="button" class="btn btn-warning me-3">Edit</button>
+
+              </a>
+              
+              <button (click)="RemoveProduct(product.id)" type="button" class="btn btn-danger">delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+    <ng-container *ngIf="productList.length==0">
+      <div>No Data Available</div>
+    </ng-container>
+  </div>

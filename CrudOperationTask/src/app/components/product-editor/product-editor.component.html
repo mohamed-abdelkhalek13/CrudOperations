@@ -1,0 +1,28 @@
+<div class="container mt-3">
+    <h2>Edit product</h2>
+    <hr>
+    <form [formGroup]="productForm" #form="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group mb-3">
+        <label for="name">Product Name:</label>
+        <input class="form-control" type="text" id="name" required formControlName="name" [(ngModel)]="product.name" />
+  
+      </div>
+    
+      <div class="form-group mb-3">
+        <label for="category">Product Category:</label>
+        <input class="form-control" type="text" required id="category" formControlName="category"
+        [(ngModel)]="product.category" />
+      </div>
+    
+      <div class="form-group mb-5">
+        <label for="color">Product Color:</label>
+        <input class="form-control" type="text" id="color" required formControlName="color"
+        [(ngModel)]="product.color" />
+      </div>
+    
+      <button [disabled]="!form.valid" class="btn btn-success" type="submit">Submit</button>
+    </form>
+  </div>
+  
+    
+    
